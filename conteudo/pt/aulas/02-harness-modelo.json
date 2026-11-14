@@ -65,12 +65,12 @@
         {
           "rot": "Arquivo · kit/aula2/agente.py",
           "icone": "arquivo",
-          "conteudo": "#!/usr/bin/env python3\n\"\"\"Agente do zero (aula 2): o harness mais simples, que leva o seu pedido ao modelo e devolve a resposta.\"\"\"\nimport json, os, sys, urllib.request\n\nMODELO = os.environ.get(\"MODELO\", \"llama3.2\")\nURL = os.environ.get(\"OLLAMA_URL\", \"http://localhost:11434\") + \"/api/chat\"\n\n\ndef cerebro(mensagens):\n    corpo = {\"model\": MODELO, \"messages\": mensagens, \"stream\": False, \"think\": False, \"options\": {\"temperature\": 0, \"seed\": 1}}\n    pedido = urllib.request.Request(URL, json.dumps(corpo).encode(), {\"Content-Type\": \"application/json\"})\n    with urllib.request.urlopen(pedido, timeout=300) as r:\n        return json.loads(r.read())[\"message\"]\n\n\nif __name__ == \"__main__\":\n    pedido = \" \".join(sys.argv[1:])\n    resposta = cerebro([{\"role\": \"user\", \"content\": pedido}])\n    print(f\"{resposta['content']}\\n(modelo {MODELO})\")"
+          "conteudo": "#!/usr/bin/env python3\n\"\"\"Agente do zero (aula 2): o harness mais simples, que leva o seu pedido ao modelo e devolve a resposta.\"\"\"\nimport json, os, sys, urllib.request\n\nMODELO = os.environ.get(\"MODELO\", \"llama3.2\")\nURL = os.environ.get(\"OLLAMA_URL\", \"http://localhost:11434\") + \"/api/chat\"\n\n\ndef cerebro(mensagens):\n    corpo = {\"model\": MODELO, \"messages\": mensagens, \"stream\": False, \"think\": False, \"options\": {\"temperature\": 0, \"seed\": 1}}\n    pedido = urllib.request.Request(URL, json.dumps(corpo).encode(), {\"Content-Type\": \"application/json\"})\n    with urllib.request.urlopen(pedido, timeout=600) as r:\n        return json.loads(r.read())[\"message\"]\n\n\nif __name__ == \"__main__\":\n    pedido = \" \".join(sys.argv[1:])\n    resposta = cerebro([{\"role\": \"user\", \"content\": pedido}])\n    print(f\"{resposta['content']}\\n(modelo {MODELO})\")"
         },
         {
           "rot": "Terminal · copiar, conversar e trocar o modelo",
           "icone": "terminal",
-          "conteudo": "cd ~/agente-do-zero\ncp ~/agentes-do-zero-v72/kit/aula2/agente.py .\npython3 agente.py \"Explique em uma frase o que é um agente de IA.\"\nMODELO=llama3.1:8b python3 agente.py \"Explique em uma frase o que é um agente de IA.\""
+          "conteudo": "cd ~/agente-do-zero\ncp ~/agentes-do-zero-v72/kit/aula2/agente.py .\npython3 agente.py \"Explique em uma frase o que é um agente de IA.\"\nollama list | grep -q \"^llama3.1:8b\" || ollama pull llama3.1:8b   # 5 GB, uma vez só: o download mostra o progresso\nMODELO=llama3.1:8b python3 agente.py \"Explique em uma frase o que é um agente de IA.\""
         }
       ],
       "saida": {
@@ -78,7 +78,7 @@
         "abas": [
           {
             "rot": "Saída capturada (14/11/2026)",
-            "html": "<pre>Um agente de IA (Inteligência Artificial) é um programa de computador que pode tomar ações autônomas com base em regras e objetivos definidos, simulando a capacidade de tomar decisões como um ser humano.\n(modelo llama3.2)\nUm agente de IA é um sistema que pode tomar decisões e agir em um ambiente, com o objetivo de alcançar um objetivo específico, utilizando aprendizado de máquina e inteligência artificial.\n(modelo llama3.1:8b)</pre><p>Mesmo pedido, dois modelos, nenhuma linha de código mudou. O <code>llama3.1:8b</code> precisa estar baixado (<code>ollama pull llama3.1:8b</code>).</p>"
+            "html": "<pre>Um agente de IA é um programa de computador que pode tomar ações autônomas com base em regras e objetivos definidos, simulando a capacidade de tomada de decisão humana.\n(modelo llama3.2)\nUm agente de IA é um sistema que pode tomar decisões e agir em um ambiente, com o objetivo de alcançar um objetivo específico, utilizando aprendizado de máquina e inteligência artificial.\n(modelo llama3.1:8b)</pre><p>Mesmo pedido, dois modelos, nenhuma linha de código mudou. A linha do <code>ollama pull</code> baixa o <code>llama3.1:8b</code> (5 GB) só se ele ainda não estiver na máquina. Se der erro de memória no seu notebook, pule a última linha e use o modelo pequeno do E2.</p>"
           }
         ]
       }
@@ -130,7 +130,7 @@
           "id": "e2",
           "titulo": "E2 · Outro cérebro, mesmo programa",
           "min": "10 min",
-          "texto": "Rode <code>ollama list</code>, escolha outro modelo que você tenha (ou baixe um) e repita a pergunta com <code>MODELO=</code> na frente.",
+          "texto": "Baixe um modelo pequeno (<code>ollama pull llama3.2:1b</code>, 1,3 GB) e repita a pergunta com <code>MODELO=llama3.2:1b</code> na frente. Se o 5 GB ficou lento demais no seu notebook, este é o que você vai querer.",
           "pronto": "a última linha mostra o nome do outro modelo e o agente.py não foi alterado."
         }
       ]

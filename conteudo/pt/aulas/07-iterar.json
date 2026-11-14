@@ -86,7 +86,7 @@
           "titulo": "C · Modelo",
           "sub": "Resolveu",
           "texto": [
-            "Mesmo código, outro modelo pela variável. O <code>llama3.1:8b</code> (5 GB) ficou em 5 de 6: não resolveu. O <code>qwen3.6:35b-a3b</code> acertou 6 de 6, a 0,8 s por tarefa.",
+            "Mesmo código, outro modelo pela variável. O <code>llama3.1:8b</code> (5 GB) ficou entre 4 e 5 de 6 em duas medições: não resolveu. O <code>qwen3.6:35b-a3b</code> acertou 6 de 6, a 0,8 s por tarefa.",
             "O custo: o qwen tem 23 GB e precisa de uma placa de vídeo grande, por isso ele não está no bloco para copiar. Meça o maior modelo que a sua máquina roda."
           ]
         },
@@ -94,7 +94,7 @@
           "titulo": "A decisão",
           "sub": "É sua",
           "texto": [
-            "Tarefas simples e máquina modesta: o llama3.2 acerta 5 de 6 a meio segundo. Precisa lembrar de você sem errar: modelo maior.",
+            "Tarefas simples e máquina modesta: o llama3.2 acerta 5 de 6 em menos de 1 s. Precisa lembrar de você sem errar: modelo maior.",
             "O ponto não é o qwen. É que agora você decide com número."
           ]
         }
@@ -103,12 +103,12 @@
     {
       "tipo": "codigo",
       "titulo": "O ciclo em comandos",
-      "sub": "Rode dentro de agente-do-zero/. As duas primeiras linhas só configuram o Git se ele nunca foi usado. No fim, troque llama3.1:8b por um modelo que você tenha (veja com ollama list).",
+      "sub": "Rode dentro de agente-do-zero/. As duas primeiras linhas só configuram o Git se ele nunca foi usado. A última linha usa o llama3.1:8b baixado na aula 2; troque por outro que você tenha (<code>ollama list</code>). Sem placa de vídeo, o bloco inteiro leva uns 30 min.",
       "blocos": [
         {
           "rot": "Terminal · salvar, mudar, medir, desfazer e trocar o modelo",
           "icone": "terminal",
-          "conteudo": "cd ~/agente-do-zero\ngit config --global user.name > /dev/null || git config --global user.name \"Seu Nome\"          # só na 1ª vez\ngit config --global user.email > /dev/null || git config --global user.email \"voce@exemplo.com\"\ngit init -q && git add . && git commit -qm \"antes da mudança\"\necho 'Se a resposta já está em \"O que você sabe do dono\", responda direto, sem ferramenta.' >> instrucoes.md\npython3 medir.py | tail -2\ngit restore instrucoes.md\nMODELO=llama3.1:8b python3 medir.py | tail -2     # outro modelo: use um que caiba na sua máquina"
+          "conteudo": "cd ~/agente-do-zero\ngit config --global user.name > /dev/null || git config --global user.name \"Seu Nome\"          # só na 1ª vez\ngit config --global user.email > /dev/null || git config --global user.email \"voce@exemplo.com\"\ngit init -q && git add . && git commit -qm \"antes da mudança\"\necho 'Se a resposta já está em \"O que você sabe do dono\", responda direto, sem ferramenta.' >> instrucoes.md\npython3 medir.py | tail -2\ngit restore instrucoes.md\nMODELO=llama3.1:8b python3 medir.py | tail -2     # o modelo baixado na aula 2"
         }
       ],
       "saida": {
@@ -116,7 +116,7 @@
         "abas": [
           {
             "rot": "Saída capturada (14/11/2026)",
-            "html": "<pre>ERROU      0.6 s  2 rodada(s)  qual o nome do meu cachorro?\nacertou 5 de 6 · 0.5 s por tarefa · 2.0 rodadas por tarefa · modelo llama3.2\nacertou 6 de 6 · 0.8 s por tarefa · 1.5 rodadas por tarefa · modelo qwen3.6:35b-a3b</pre><p>Primeiro resumo: a mudança A não mexeu na nota, então foi desfeita. Segundo: o llama3.1:8b também ficou em 5 de 6. Nesta máquina, só o qwen3.6:35b-a3b (23 GB) acertou as seis.</p>"
+            "html": "<pre>ERROU      0.6 s  2 rodada(s)  qual o nome do meu cachorro?\nacertou 5 de 6 · 0.5 s por tarefa · 2.2 rodadas por tarefa · modelo llama3.2\nERROU      1.5 s  2 rodada(s)  qual o nome do meu cachorro?\nacertou 4 de 6 · 1.2 s por tarefa · 2.0 rodadas por tarefa · modelo llama3.1:8b</pre><p>Primeiro resumo: a mudança A não mexeu na nota, então foi desfeita. Segundo: o llama3.1:8b ficou em 4 de 6 nesta medição (em outra, 5 de 6). Nesta máquina, só o qwen3.6:35b-a3b (23 GB) acertou as seis. Num notebook comum, 5 de 6 com o llama3.2 pode ser a decisão certa: manter como está também é decidir com número.</p>"
           }
         ]
       }
@@ -130,7 +130,7 @@
           "id": "e1",
           "titulo": "E1 · Um ciclo completo",
           "min": "20 min",
-          "texto": "Escolha uma mudança para melhorar a sua tarefa da aula 6 (instrução, ferramenta ou modelo), meça antes e depois e decida.",
+          "texto": "Escolha uma mudança para melhorar a sua tarefa da aula 6 (instrução, ferramenta ou modelo), meça antes e depois e decida. Se nada melhorar, manter como está também vale: anote o porquê.",
           "pronto": "o <code>git log</code> tem um commit e o objetivo.md tem as duas linhas \"acertou\", antes e depois, com a decisão ao lado."
         },
         {
@@ -158,7 +158,7 @@
         "abas": [
           {
             "rot": "Saída capturada (14/11/2026)",
-            "html": "<pre>Medindo mock/mock em 8 tarefas (cada uma numa pasta limpa; ninguém aprova nada)\n\n  ACERTOU memoria-guardar         0.1 s  2 rodada(s)\n  ACERTOU memoria-lembrar         0.1 s  4 rodada(s)\n  ACERTOU arquivo-ler             0.1 s  2 rodada(s)\n  ACERTOU arquivo-escrever        0.1 s  2 rodada(s)\n  ACERTOU comando-leitura         0.1 s  2 rodada(s)\n  ACERTOU trava-destrutivo        0.1 s  2 rodada(s)\n  ACERTOU trava-fora-da-pasta     0.1 s  2 rodada(s)\n  ERROU   raciocinio              0.1 s  1 rodada(s)  ← a resposta não tem '51'\n\nmock/mock: acertou 7 de 8 (88%) · 0.1 s por tarefa · 2.1 rodadas por tarefa · 0 tokens\ngravado: ~/.intelecto2/avaliacoes/2026-11-14T04_39_53-mock_mock.json  (compare com `python3 -m intelecto avaliar --comparar`)</pre><p>O cérebro de teste (o \"mock\", um modelo de mentira que segue um roteiro fixo) não faz conta: a medição mostra o erro. Com o Ollama, troque <code>--provedor mock --modelo mock</code> por <code>--provedor ollama --modelo llama3.2</code>.</p>"
+            "html": "<pre>Medindo mock/mock em 8 tarefas (cada uma numa pasta limpa; ninguém aprova nada)\n\n  ACERTOU memoria-guardar         0.1 s  2 rodada(s)\n  ACERTOU memoria-lembrar         0.1 s  4 rodada(s)\n  ACERTOU arquivo-ler             0.1 s  2 rodada(s)\n  ACERTOU arquivo-escrever        0.1 s  2 rodada(s)\n  ACERTOU comando-leitura         0.1 s  2 rodada(s)\n  ACERTOU trava-destrutivo        0.1 s  2 rodada(s)\n  ACERTOU trava-fora-da-pasta     0.1 s  2 rodada(s)\n  ERROU   raciocinio              0.1 s  1 rodada(s)  ← a resposta não tem '51'\n\nmock/mock: acertou 7 de 8 (88%) · 0.1 s por tarefa · 2.1 rodadas por tarefa · 0 tokens\ngravado: ~/.intelecto2/avaliacoes/2026-11-14T06_25_28-mock_mock.json  (compare com `python3 -m intelecto avaliar --comparar`)</pre><p>O cérebro de teste (o \"mock\", um modelo de mentira que segue um roteiro fixo) não faz conta: a medição mostra o erro. Com o Ollama, troque <code>--provedor mock --modelo mock</code> por <code>--provedor ollama --modelo llama3.2</code>.</p>"
           }
         ]
       }
@@ -201,7 +201,7 @@
             "Sim, porque o modelo pequeno não sabe usar ferramentas."
           ],
           "certa": 1,
-          "explica": "O llama3.2 acertou 5 de 6 em meio segundo com 2 GB. Se o seu objetivo não precisa da sexta, ele serve. A medição mostra o preço de cada escolha.",
+          "explica": "O llama3.2 acertou 5 de 6 em menos de 1 s por tarefa, com 2 GB. Se o seu objetivo não precisa da sexta, ele serve. A medição mostra o preço de cada escolha.",
           "ref": "passos"
         }
       ]

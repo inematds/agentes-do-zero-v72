@@ -116,7 +116,7 @@
           "sub": "Use o WSL",
           "texto": [
             "Os comandos do curso são do terminal do Linux. No Windows, abra o PowerShell como administrador, rode <code>wsl --install</code>, reinicie e abra o aplicativo <b>Ubuntu</b>: é nele que você digita tudo.",
-            "Instale o Ollama para Linux dentro do Ubuntu, com o comando da página de download do Ollama."
+            "Instale o Ollama dentro do Ubuntu com este comando: <code>curl -fsSL https://ollama.com/install.sh | sh</code> (ele pede a sua senha do Ubuntu). O <b>WSL</b> é o Linux que roda dentro do Windows."
           ]
         },
         {
@@ -139,7 +139,7 @@
           "titulo": "Sem editor",
           "sub": "O kit já tem tudo",
           "texto": [
-            "Você não precisa criar arquivo na mão: o primeiro comando baixa o kit do curso (com o <b>Git</b>, o programa que baixa e guarda versões de projetos) e, em cada aula, um <code>cp</code> copia o arquivo da aula para a sua pasta.",
+            "Você não cria arquivo do zero: o primeiro comando baixa o kit do curso (com o <b>Git</b>, o programa que baixa e guarda versões de projetos) e, em cada aula, um <code>cp</code> copia o arquivo da aula para a sua pasta.",
             "Se quiser colar à mão, use um editor de texto simples e salve com o nome exato (<code>agente.py</code>, não <code>agente.py.txt</code>)."
           ]
         }
@@ -158,7 +158,7 @@
         {
           "rot": "Terminal · baixar o modelo e criar a pasta",
           "icone": "terminal",
-          "conteudo": "python3 --version                    # precisa ser 3.10 ou mais novo\ncd ~ && git clone -q https://github.com/inematds/agentes-do-zero-v72     # o kit: todos os arquivos do curso\nmkdir -p ~/agente-do-zero/trabalho   # a pasta do seu agente\nollama list | grep -q \"^llama3.2\" || ollama pull llama3.2     # baixa só se ainda não tiver (2 GB)\nollama run llama3.2 \"Diga oi em cinco palavras.\" 2>/dev/null"
+          "conteudo": "python3 --version                    # precisa ser 3.10 ou mais novo\ncd ~ && [ -d agentes-do-zero-v72 ] || git clone -q https://github.com/inematds/agentes-do-zero-v72   # o kit (em outra pasta que a sua)\nmkdir -p ~/agente-do-zero/trabalho   # a pasta do seu agente\nollama list | grep -q \"^llama3.2\" || ollama pull llama3.2     # baixa só se ainda não tiver (2 GB)\nollama run llama3.2 \"Diga oi em cinco palavras.\" 2>/dev/null"
         }
       ],
       "saida": {
@@ -166,7 +166,7 @@
         "abas": [
           {
             "rot": "Saída capturada (14/11/2026)",
-            "html": "<pre>Olá, como você está?</pre><p>A primeira linha confere o Python; a última é o modelo respondendo. A frase muda a cada vez: o modelo escreve com as próprias palavras.</p>"
+            "html": "<pre>Python 3.12.3\nOlá, como você?</pre><p>A primeira linha confere o Python; a última é o modelo respondendo. Pedimos cinco palavras e ele deu três: o modelo nem sempre obedece, e é por isso que a aula 6 mede. Repare também: o kit fica em <code>~/agentes-do-zero-v72</code>, e o seu agente, em <code>~/agente-do-zero</code>, pastas diferentes.</p>"
           }
         ]
       }
@@ -187,7 +187,7 @@
           "id": "e2",
           "titulo": "E2 · O seu objetivo",
           "min": "10 min",
-          "texto": "Copie o modelo para a sua pasta (<code>cp ~/agentes-do-zero-v72/kit/objetivo.md ~/agente-do-zero/</code>) e troque pelas suas palavras. Pode ser o mesmo agente do exemplo.",
+          "texto": "Copie o modelo para a sua pasta (<code>cp ~/agentes-do-zero-v72/kit/objetivo.md ~/agente-do-zero/</code>), abra com <code>nano ~/agente-do-zero/objetivo.md</code> e troque pelas suas palavras. No nano: setas para andar, Ctrl+O e Enter para salvar, Ctrl+X para sair. Vale para todo arquivo que o curso mandar editar. Pode ser o mesmo agente do exemplo.",
           "pronto": "o arquivo tem as três linhas, Faz, Não faz e Pronto quando, e a última cita um número que dá para medir."
         }
       ]

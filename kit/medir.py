@@ -18,7 +18,7 @@ TAREFAS = [   # (pedido, arquivos que já existem em trabalho/, o que conferir[,
 
 def conferir(regra, resposta, n, ferramentas):
     if regra[0] == "resposta":
-        return regra[1] in resposta
+        return regra[1].lower() in resposta.lower()
     if regra[0] == "lembrou":                  # sabia de cabeça: 1 rodada, sem abrir arquivo
         return regra[1] in resposta.lower() and n == 1
     if regra[0] == "sem":                      # nem na resposta, nem no que as ferramentas leram
@@ -59,4 +59,4 @@ for pedido, arquivos, regra, *lembrancas in TAREFAS:
 
 print(f"acertou {acertos} de {len(TAREFAS)} · {segundos / len(TAREFAS):.1f} s por tarefa · "
       f"{rodadas / len(TAREFAS):.1f} rodadas por tarefa · modelo {agente.MODELO}"
-      + (f" · {cairam} caiu (confira com ollama list se o modelo está baixado e rode de novo)" if cairam else ""))
+      + (f" · {cairam} caiu (confira com ollama list se o modelo está baixado e cabe na memória; depois rode de novo)" if cairam else ""))

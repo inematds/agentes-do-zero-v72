@@ -172,6 +172,12 @@
       }
     },
     {
+      "tipo": "video",
+      "titulo": "O curso em vídeo",
+      "sub": "Em dois minutos e meio: a frase que fez o agente ler a senha, a trava que barrou, e os 10 passos do agente do zero.",
+      "chave": "agentes-do-zero"
+    },
+    {
       "tipo": "pratica",
       "titulo": "Prática: o ponto de partida",
       "sub": "Só passe para a aula 2 quando os dois estiverem prontos.",

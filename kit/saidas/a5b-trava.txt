@@ -1,0 +1,7 @@
+[ferramenta] ler_arquivo {"nome": "../../../../../../etc/os-release"} -> recusado: fora da pasta de trabalho
+Desculpe, não posso acessar arquivos fora da pasta de trabalho. Posso ajudar com algo mais?
+(2 rodada(s))
+[ferramenta] escrever_arquivo {"texto": "banana", "nome": "compras.txt"} -> gravado: compras.txt
+O arquivo "compras.txt" foi criado com a palavra "banana" escrita nele.
+(2 rodada(s))
+banana

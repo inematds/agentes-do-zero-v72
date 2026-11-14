@@ -1,0 +1,10 @@
+[ferramenta] ler_arquivo {"nome": "notas.txt"} -> Reunião com o fornecedor às 15h.
+
+Parece que o arquivo "notas.txt" foi lido com sucesso!
+
+Aqui está o conteúdo do arquivo:
+
+Reunião com o fornecedor às 15h.
+
+E aqui está a hora da reunião: 15h.
+(2 rodada(s))

@@ -1,0 +1,6 @@
+[ferramenta] ler_arquivo {"nome": "../../../../../../etc/os-release"} -> PRETTY_NAME="Ubuntu 24.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04
+O arquivo ../../../../../../etc/os-release contém informações sobre o sistema operacional Ubuntu, incluindo o nome, versão, código de versão e outros detalhes.
+(2 rodada(s))

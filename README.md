@@ -31,7 +31,7 @@ se mede sozinho.
 | 4 | Medir | `cp ~/agentes-do-zero-v72/kit/medir.py . && python3 medir.py` | ⚙️ script |
 | 5 | Iterar | `git commit` → mudar uma coisa → `python3 medir.py` → manter ou `git restore` | você |
 | 6 | Ir além | [INTELECTO v2](https://inematds.github.io/intelecto-v2/guia/) e `python3 -m intelecto avaliar` | você |
-| 7 | (Manutenção do curso) editar `conteudo/pt/aulas/*.json` com marcadores `@@bloco/@@arquivo/@@saida`, capturar e gerar | `fila-vaga gpu agentes-do-zero -- bash kit/capturar.sh` → `resolver-kit.py .` → `python3 gerar.py && python3 validar.py --links` | 🧠 sessão |
+| 7 | (Manutenção do curso) editar `conteudo/pt/aulas/*.json` com marcadores `@@bloco/@@arquivo/@@saida`, capturar e gerar | `bash kit/capturar.sh` (cada bloco pega a própria vaga gpu; nunca embrulhar o lote) → `resolver-kit.py .` → `python3 gerar.py && python3 validar.py --links` | 🧠 sessão |
 
 ## Mais no INEMA.CLUB
 

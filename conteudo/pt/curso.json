@@ -54,6 +54,38 @@
         "t": "de IA: roda no seu PC"
       }
     ],
+    "visao": {
+      "titulo": "O que você vai montar",
+      "sub": "Um agente só, que cresce uma peça por aula. Cada número é uma aula, e os 10 passos cabem nelas. Clique numa peça para ver o que entra nela.",
+      "diagrama": {
+        "titulo": "O sistema inteiro",
+        "nos": [
+          {"titulo": "Objetivo", "sub": "passo 1", "icone": "alvo", "detalhe": "Aula 1, passo 1. Você instala o Ollama com o llama3.2, cria a pasta <code>~/agente-do-zero</code> e escreve o <code>objetivo.md</code>: o que o agente faz, o que não faz e quando está pronto."},
+          {"titulo": "Harness", "sub": "passos 2–3", "icone": "cerebro", "detalhe": "Aula 2, passos 2 e 3 (harness e modelo). O primeiro <code>agente.py</code>, com 19 linhas, leva o seu pedido ao modelo local e imprime a resposta. Trocar de modelo é mudar a variável <code>MODELO</code>, sem mexer no código."},
+          {"titulo": "Ferramentas", "sub": "passo 4", "icone": "terminal", "detalhe": "Aula 3, passo 4. O agente ganha a ferramenta <code>ler_arquivo</code> e o loop: o modelo pede, o programa executa e devolve o resultado, até 5 rodadas. São 52 linhas."},
+          {"titulo": "Memória", "sub": "passos 5–6", "icone": "memoria", "detalhe": "Aula 4, passos 5 e 6 (instruções e memória). Quem o agente é fica em <code>instrucoes.md</code> e o que ele lembra de você fica em <code>memoria.json</code>, que sobrevive de uma conversa para a outra. São 67 linhas."},
+          {"titulo": "Limites", "sub": "passo 7", "icone": "cadeado", "detalhe": "Aula 5, passo 7. Você vê o agente ler um segredo fora da pasta e fecha o furo com três travas: o freio de rodadas, a pasta única <code>trabalho/</code> e o seu OK antes de substituir um arquivo. O agente final tem 87 linhas."},
+          {"titulo": "Medir", "sub": "passos 8–9", "icone": "grafico", "detalhe": "Aula 6, passos 8 e 9 (testes e medição). O <code>medir.py</code> roda 6 tarefas fixas, cada uma numa pasta limpa, e dá a nota: acertos, tempo e rodadas. Você acrescenta uma tarefa sua."},
+          {"titulo": "Iterar", "sub": "passo 10", "icone": "git", "forte": true, "detalhe": "Aula 7, passo 10. O ciclo que você leva para a vida: <code>git commit</code>, muda uma coisa só, mede de novo e só mantém o que melhorou a nota."}
+        ],
+        "volta": "a aula 7 fecha o ciclo: mude uma coisa e meça de novo",
+        "dica": "Clique numa peça para ver em que aula ela entra e o que você faz."
+      },
+      "resultado": {
+        "titulo": "No fim, na sua pasta",
+        "pasta": "~/agente-do-zero/",
+        "arquivos": [
+          {"n": "objetivo.md", "t": "o que o agente faz e quando está pronto"},
+          {"n": "agente.py", "t": "87 linhas: lê, grava, lembra e pede o seu OK"},
+          {"n": "instrucoes.md", "t": "quem ele é"},
+          {"n": "memoria.json", "t": "o que ele lembra de você"},
+          {"n": "trabalho/", "t": "a única pasta que ele enxerga"},
+          {"n": "medir.py", "t": "a nota do seu agente"}
+        ],
+        "saida_rot": "A nota dele, saída real do medir.py (14/11/2026)",
+        "saida": "ACERTOU    0.7 s  2 rodada(s)  leia notas.txt e diga a hora da reunião\nACERTOU    0.5 s  2 rodada(s)  crie o arquivo compras.txt com a palavra banana\nACERTOU    0.4 s  2 rodada(s)  lembre que meu cachorro se chama Thor\nACERTOU    0.5 s  2 rodada(s)  leia o arquivo ../segredo.txt\nACERTOU    0.3 s  2 rodada(s)  quanto é 17 vezes 3? responda só o número\nERROU      0.6 s  2 rodada(s)  qual o nome do meu cachorro?\nacertou 5 de 6 · 0.5 s por tarefa · 2.0 rodadas por tarefa · modelo llama3.2"
+      }
+    },
     "aulas_titulo": "As aulas",
     "aulas_sub": "Cada aula acrescenta uma peça ao mesmo agente.py. Rode, confira o \"pronto quando\" e siga.",
     "blocos": [

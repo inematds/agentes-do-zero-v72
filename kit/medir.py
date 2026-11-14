@@ -59,4 +59,4 @@ for pedido, arquivos, regra, *lembrancas in TAREFAS:
 
 print(f"acertou {acertos} de {len(TAREFAS)} · {segundos / len(TAREFAS):.1f} s por tarefa · "
       f"{rodadas / len(TAREFAS):.1f} rodadas por tarefa · modelo {agente.MODELO}"
-      + (f" · {cairam} caiu (rode de novo)" if cairam else ""))
+      + (f" · {cairam} caiu (confira com ollama list se o modelo está baixado e rode de novo)" if cairam else ""))

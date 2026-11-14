@@ -9,7 +9,7 @@ URL = os.environ.get("OLLAMA_URL", "http://localhost:11434") + "/api/chat"
 def cerebro(mensagens):
     corpo = {"model": MODELO, "messages": mensagens, "stream": False, "think": False, "options": {"temperature": 0, "seed": 1}}
     pedido = urllib.request.Request(URL, json.dumps(corpo).encode(), {"Content-Type": "application/json"})
-    with urllib.request.urlopen(pedido, timeout=300) as r:
+    with urllib.request.urlopen(pedido, timeout=600) as r:
         return json.loads(r.read())["message"]
 
 

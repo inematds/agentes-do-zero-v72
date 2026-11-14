@@ -12,7 +12,7 @@ def cerebro(mensagens, ferramentas):
     corpo = {"model": MODELO, "messages": mensagens, "tools": ferramentas, "stream": False, "think": False,
              "options": {"temperature": 0, "seed": 1}}
     pedido = urllib.request.Request(URL, json.dumps(corpo).encode(), {"Content-Type": "application/json"})
-    with urllib.request.urlopen(pedido, timeout=300) as r:
+    with urllib.request.urlopen(pedido, timeout=600) as r:
         return json.loads(r.read())["message"]
 
 

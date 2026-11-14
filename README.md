@@ -33,4 +33,10 @@ se mede sozinho.
 | 6 | Ir além | [INTELECTO v2](https://inematds.github.io/intelecto-v2/guia/) e `python3 -m intelecto avaliar` | você |
 | 7 | (Manutenção do curso) editar `conteudo/pt/aulas/*.json` com marcadores `@@bloco/@@arquivo/@@saida`, capturar e gerar | `fila-vaga gpu agentes-do-zero -- bash kit/capturar.sh` → `resolver-kit.py .` → `python3 gerar.py && python3 validar.py --links` | 🧠 sessão |
 
+## Mais no INEMA.CLUB
+
+- [Ficha completa deste curso](https://www.inema.club/cursos/392-sistema-de-agentes-do-zero-monte-o-seu-agente-de-ia-nos-10-passos-com-ia-gratis-no-computador/)
+- [Guia: como aprender inteligência artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.inema.club/cursos/)
+
 Formato INEMA Learning v7.2 · conteúdo aberto e gratuito · [inema.club](https://inema.club)
